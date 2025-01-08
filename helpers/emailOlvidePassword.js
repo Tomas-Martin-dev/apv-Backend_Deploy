@@ -2,11 +2,10 @@ import nodemailer from "nodemailer"
 
 const emailOlvidePassword = async (datos) => {
     var transport = nodemailer.createTransport({
-        host: process.env.HOST_MAILTRAP,
-        port: process.env.PORT_MAILTRAP,
+        service: "gmail",
         auth: {
-          user: process.env.USER_MAILTRAP,
-          pass: process.env.PASSWORD_MAILTRAP
+          user: process.env.USER_GMAIL,
+          pass:  process.env.PASS_GMAIL
         }
       });
     const {nombre, email, token} = datos;
