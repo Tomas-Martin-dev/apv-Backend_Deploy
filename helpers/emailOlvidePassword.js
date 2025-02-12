@@ -16,11 +16,11 @@ const emailOlvidePassword = async (datos) => {
         subject: "Restablecer tu Password",
         text: "Restablecer tu Password",
         html: `<p>Hola ${nombre}, solicitaste restablecer tu password.</p>
-        <p>ingrese al siguiente link para validarlo y podra cambiar su password</p>
+        <p>Ingrese al siguiente link para validarlo y podras cambiar tu password</p>
         <a href="${process.env.URL}/recuperar-password/${token}"> Recuperar Cuenta</a>
         
         
-        <p>Si tu no creaste una cuenta, ignora este mensaje porfavor</p>`
+        <p>Si tu no solicitaste un cambio de password, <b>ignora este mensaje porfavor</b></p>`
     });
       console.log("Mensaje enviado: %s", info.messageId);
       
