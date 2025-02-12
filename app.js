@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import conectarDB from "./config/db.js";
 import veterinarioRoutes from "./routes/veterinarioRoutes.js";
 import pacienteRoutes from "./routes/pacienteRoutes.js";
+import cron from "node-cron"
+import fetch from 'node-fetch';
 
 const app = express(); /* inicializa en una variable a Express */
 app.use(express.json()); /* Middleware que permite a la app procesar datos en formato JSON */
@@ -26,6 +28,15 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 const PORT =  process.env.PORT || 4000;
+
+cron.schedule('*/14 * * * *', async () => {
+    try {
+      const response = await fetch('https://apv-backend-deploy-vouk.onrender.com');
+      console.log(`Ping al servidor exitoso: ${response.status} - ${new Date()}`);
+    } catch (error) {
+      console.error('Error al pingear el servidor:', error);
+    }
+});
 
 app.listen(PORT, ()=>{
     console.log(`servidor conectado en el puerto ${PORT}`);
