@@ -76,7 +76,7 @@ const autenticar = async (req, res) => {
     // Verificar que el password esta bien
     if (await usuario.comprobarPassword(contraseña)) {
         console.log("pass correcto!!");
-        // Autenticado retornamos los datos no sensibles del user y creamois un token con JWT
+        // Autenticado retornamos los datos no sensibles del user y creamos un token con JWT
         res.json({
             _id: usuario._id,
             nombre: usuario.nombre,
