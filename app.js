@@ -13,7 +13,7 @@ app.use(express.json()); /* Middleware que permite a la app procesar datos en fo
 dotenv.config(); /* Carga las variables definidas en un archivo .env para usarlas con process.env */
 
 // dominios permitidos
-const dominiosPermitidos = [process.env.URL];
+const dominiosPermitidos = [process.env.URL, "http://localhost:5173/"];
 
 const corsOptions = {
     origin: function(origin,callback) {
