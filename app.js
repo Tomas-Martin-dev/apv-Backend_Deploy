@@ -29,7 +29,7 @@ app.use(cors(corsOptions));
 
 const PORT =  process.env.PORT || 4000;
 
-cron.schedule('*/5 * * * *', async () => {
+cron.schedule('*/2 * * * *', async () => {
     try {
       const response = await fetch('https://apv-backend-deploy-vouk.onrender.com');
       console.log(`Ping al servidor exitoso: ${response.status} - ${new Date()}`);
