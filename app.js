@@ -34,7 +34,6 @@ cron.schedule('*/2 * * * *', async () => {
         const response = await fetch(process.env.URL_BACK);
         console.log(`Ping al servidor exitoso: ${response.status} - ${new Date()}`);
         console.log(`Status: ${response.status} ${response.statusText}`);
-        console.log(`Resumen: ${data.slice(0, 100)}...`);
     } catch (error) {
         console.error(`Error al hacer ping: ${error.message} - ${new Date().toLocaleString()}`);
     }
