@@ -29,14 +29,16 @@ app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 4000;
 
-cron.schedule('*/2 * * * *', async () => {
+cron.schedule('*/59 * * * *', async () => {
     try {
         const response = await fetch(process.env.URL_BACK);
         console.log(`Ping al servidor exitoso: ${response.status} - ${new Date()}`);
-        console.log(`Status: ${response.status} ${response.statusText}`);
     } catch (error) {
         console.error(`Error al hacer ping: ${error.message} - ${new Date().toLocaleString()}`);
     }
+});
+app.get('/ping', (req, res) => {
+  res.send('Servidor activo ✅');
 });
 
 app.listen(PORT, () => {
